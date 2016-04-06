@@ -1,0 +1,42 @@
+{% include "./header.html"%}
+  <div class="row white-text">
+    <div class="col s12 center">
+      <h4>Thank you for your interest in advertising on /r/Twitch!</h4>
+      <p>Please fill in the following forms, and we'll get back to you as soon as possible!</p>
+    </div>
+  </div>
+  <div class="row white-text">
+    <div class="col s6 offset-s3">
+      <form>
+        <h6><strong>Q1:</strong> What are you planning to post on /r/Twitch?</h6>
+        <p>
+          <input type="radio" name="type" id="type-video">
+          <label for="type-video">A Video</label>
+        </p>
+        <p>
+          <input type="radio" name="type" id="type-web_tool">
+          <label for="type-web_tool">A Web Tool</label>
+        </p>
+        <p>
+          <input type="radio" name="type" id="type-desktop_tool">
+          <label for="type-desktop_tool">A Desktop Tool</label>
+        </p>
+        <p>
+          <input type="radio" name="type" id="type-ama">
+          <label for="type-ama">An AMA</label>
+        </p>
+        <p>
+          <input type="radio" name="type" id="type-other">
+          <label for="type-other">Something Not Listed</label>
+        </p>
+        <br />
+        <h6><strong>Q2:</strong> What is your Twitch username?</h6>
+        <p>
+          <input type="text" id="page1-twitchname">
+        </p>
+        <br />
+        <a id="page1-next" class="btn grey darken-1">Next</a>
+      </form>
+    </div>
+  </div>
+{% include "./footer.html"%}

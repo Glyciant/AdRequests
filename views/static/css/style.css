@@ -1,0 +1,17 @@
+.nav-wrapper .dropdown-content {
+	margin-top:64px
+}
+
+#page1-next {
+  width: 100%;
+}
+
+[type="radio"]:checked+label:after {
+  background-color: #6441A5;
+  border-color: #6441A5;
+}
+
+input[type=text]:focus:not([readonly]) {
+  border-color: #6441A5;
+  box-shadow: 0 1px 0 0 #6441A5;
+}
