@@ -1,0 +1,45 @@
+{% include "./header.html"%}
+  <div class="row white-text">
+    <div class="col s12 center">
+      <h4>Submitting Streamer AMA</h4>
+    </div>
+  </div>
+  <div class="row white-text">
+    <div class="col s6 offset-s3">
+      <form>
+        <h6>Q3: Are you partnered with Twitch?</h6>
+        <p>
+          <input type="radio" name="partner" id="ama-streamer-partner-yes">
+          <label for="ama-streamer-partner-yes">Yes</label>
+        </p>
+        <p>
+          <input type="radio" name="partner" id="ama-streamer-partner-no">
+          <label for="ama-streamer-partner-no">No</label>
+        </p>
+        <br />
+        <h6 id="ama-streamer-twitch-partner-time">Q3.1: For how long have you been a Twitch partner?</h6>
+        <p id="ama-streamer-twitch-partner-time-input">
+          <input type="text" id="ama-streamer-partner-time">
+        </p>
+        <br />
+        <h6>Q4: Roughly how many viewers do you get per stream?</h6>
+        <p>
+          <input type="text" id="ama-streamer-viewers">
+        </p>
+        <br />
+        <h6>Q5: What date would you like your AMA to start on?</h6>
+        <p>
+          <input type="date" id="ama-streamer-start">
+        </p>
+        <br />
+        <h6>Q6: How many days would you like your AMA to run for?</h6>
+        <p>
+          <input type="number" id="ama-streamer-length">
+        </p>
+        <br />
+        <a id="ama-streamer-submit" class="btn grey darken-1">Submit</a>
+      </form>
+    </div>
+  </div>
+  <script src="/js/submit.js"></script>
+{% include "./footer.html"%}

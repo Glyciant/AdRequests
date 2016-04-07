@@ -1,0 +1,33 @@
+{% include "./header.html"%}
+<div class="row white-text">
+  <div class="col s12 center">
+    <h4>Submitting Video</h4>
+  </div>
+</div>
+<div class="row white-text">
+  <div class="col s6 offset-s3">
+    <form>
+      <h6>Q3: What is the video's URL?</h6>
+      <p>
+        <input type="text" id="video-url">
+      </p>
+      <br />
+      <h6>Q4: Is the video made by you?</h6>
+      <p>
+        <input type="radio" name="owner" id="video-owner-yes">
+        <label for="video-owner-yes">Yes</label>
+      </p>
+      <p>
+        <input type="radio" name="owner" id="video-owner-no">
+        <label for="video-owner-no">No</label>
+      </p>
+      <br />
+      <h6>Q5: Please give us a small description about this video, including why you want to post it on /r/Twitch.</h6>
+        <textarea id="video-description" class="materialize-textarea"></textarea>
+      <br />
+      <a id="video-submit" class="btn grey darken-1">Submit</a>
+    </form>
+  </div>
+</div>
+  <script src="/js/submit.js"></script>
+{% include "./footer.html"%}

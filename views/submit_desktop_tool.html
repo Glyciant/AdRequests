@@ -1,0 +1,105 @@
+{% include "./header.html"%}
+<div class="row white-text">
+  <div class="col s12 center">
+    <h4>Submitting Desktop Tool</h4>
+  </div>
+</div>
+<div class="row white-text">
+  <div class="col s6 offset-s3">
+    <form>
+      <h6>Q3: What is the tool's name?</h6>
+      <p>
+        <input type="text" id="desktop_tool-name">
+      </p>
+      <br />
+      <h6>Q4: What is the tool's download URL?</h6>
+      <p>
+        <input type="text" id="desktop_tool-url">
+      </p>
+      <br />
+      <h6>Q5: Please give us a small description of your service.</h6>
+      <p>
+        <textarea id="desktop_tool-description" class="materialize-textarea"></textarea>
+      </p>
+      <br />
+      <h6>Q6: What user data will you require? Examples: email addresses, cookies, login data, API data, etc.</h6>
+      <p>
+        <input type="text" id="desktop_tool-data">
+      </p>
+      <br />
+      <h6>Q7: Do you require data from the Twitch API?</h6>
+      <p>
+        <input type="radio" name="tos" id="desktop_tool-api-yes">
+        <label for="desktop_tool-api-yes">Yes</label>
+      </p>
+      <p>
+        <input type="radio" name="tos" id="desktop_tool-api-no">
+        <label for="desktop_tool-api-no">No</label>
+      </p>
+      <br style="display:none" id="desktop_tool-api1-br"/>
+      <h6 style="display:none" id="desktop_tool-api1">Q7.1: What user data will you store from the Twitch API?</h6>
+      <p style="display:none" id="desktop_tool-api1-input">
+        <input type="text" id="desktop_tool-apidata">
+      </p>
+      <br style="display:none" id="desktop_tool-api2-br"/>
+      <h6 style="display:none" id="desktop_tool-api2">Q7.2: What scopes will you use from the Twitch API?</h6>
+      <p style="display:none" id="desktop_tool-api2-input">
+        <input type="text" id="desktop_tool-scopes">
+      </p>
+      <br style="display:none" id="desktop_tool-api3-br"/>
+      <h6 style="display:none" id="desktop_tool-api3">Q7.3: Please describe why you need each of the above scopes.</h6>
+      <p style="display:none" id="desktop_tool-api3-input">
+        <textarea id="desktop_tool-scopesdescription" class="materialize-textarea"></textarea>
+      </p>
+      <br />
+      <h6>Q8: Do you have a Terms of Service?</h6>
+      <p>
+        <input type="radio" name="tos" id="desktop_tool-tos-yes">
+        <label for="desktop_tool-tos-yes">Yes</label>
+      </p>
+      <p>
+        <input type="radio" name="tos" id="desktop_tool-tos-no">
+        <label for="desktop_tool-tos-no">No</label>
+      </p>
+      <br />
+      <h6 id="desktop_tool-service-tos">Q8.1: Please provide a link to your Terms of Service.</h6>
+      <p id="desktop_tool-service-tos-input">
+        <input type="text" id="desktop_tool-tos">
+      </p>
+      <br />
+      <h6>Q9: Is your code open source, or avaliable upon request?</h6>
+      <p>
+        <input type="radio" name="code" id="desktop_tool-code-yes">
+        <label for="desktop_tool-code-yes">Yes</label>
+      </p>
+      <p>
+        <input type="radio" name="code" id="desktop_tool-code-no">
+        <label for="desktop_tool-code-no">No</label>
+      </p>
+      <br />
+      <h6 id="desktop_tool-open-code">Q9.1: Please provide a link to where we can find the code.</h6>
+      <p id="desktop_tool-open-code-input">
+        <input type="text" id="desktop_tool-code">
+      </p>
+      <br />
+      <h6>Q10: If you are in beta, do you expect any updates to change the above answers?</h6>
+      <p>
+        <input type="radio" name="beta" id="desktop_tool-beta-yes">
+        <label for="desktop_tool-beta-yes">Yes</label>
+      </p>
+      <p>
+        <input type="radio" name="beta" id="desktop_tool-beta-no">
+        <label for="desktop_tool-beta-no">No</label>
+      </p>
+      <br />
+      <h6 id="desktop_tool-beta-change">Q10.1: What do you expect to change when you leave beta?</h6>
+      <p id="desktop_tool-beta-change-input">
+        <textarea id="desktop_tool-beta" class="materialize-textarea"></textarea>
+      </p>
+      <br />
+      <a id="desktop_tool-submit" class="btn grey darken-1">Submit</a>
+    </form>
+  </div>
+</div>
+  <script src="/js/submit.js"></script>
+{% include "./footer.html"%}

@@ -2,7 +2,7 @@
 	margin-top:64px
 }
 
-#page1-next {
+#page1-next, #ama-streamer-submit, #ama-business-submit, #other-submit, #web_tool-submit, #video-submit, #desktop_tool-submit {
   width: 100%;
 }
 
@@ -11,7 +11,11 @@
   border-color: #6441A5;
 }
 
-input[type=text]:focus:not([readonly]) {
+input[type=text]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=date]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
   border-color: #6441A5;
   box-shadow: 0 1px 0 0 #6441A5;
+}
+
+#ama-streamer-twitch-partner-time, #ama-streamer-twitch-partner-time-input, #ama-business-product-tos, #ama-business-product-tos-input, #web_tool-service-tos, #web_tool-service-tos-input, #web_tool-open-code, #web_tool-open-code-input, #web_tool-beta-change, #web_tool-beta-change-input, #desktop_tool-service-tos, #desktop_tool-service-tos-input, #desktop_tool-open-code, #desktop_tool-open-code-input, #desktop_tool-beta-change, #desktop_tool-beta-change-input {
+	display: none;
 }

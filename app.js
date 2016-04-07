@@ -82,6 +82,30 @@ app.get('/submit/', function(req, res) {
 	res.render('submit')
 })
 
+app.get('/submit/video/', function(req, res) {
+	res.render('submit_video')
+})
+
+app.get('/submit/web_tool/', function(req, res) {
+	res.render('submit_web_tool')
+})
+
+app.get('/submit/desktop_tool', function(req, res) {
+	res.render('submit_desktop_tool')
+})
+
+app.get('/submit/ama/streamer', function(req, res) {
+	res.render('submit_ama_streamer')
+})
+
+app.get('/submit/ama/business', function(req, res) {
+	res.render('submit_ama_business')
+})
+
+app.get('/submit/other/', function(req, res) {
+	res.render('submit_other')
+})
+
 app.get('*', function(req, res, next) {
 	if (helpers.isMod(app.locals.loggedin) == true) {
 		next();
@@ -92,10 +116,6 @@ app.get('*', function(req, res, next) {
 });
 
 // Posts
-
-app.post('/submit/video/') {
-	res.redirect('/submit/video/', {twitchname: twitchname})
-}
 
 // GET 404
 app.get('*', function(req, res, next) {
