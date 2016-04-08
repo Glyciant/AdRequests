@@ -133,6 +133,46 @@ app.post('/submit_request/', function(req, res) {
 	db.requests.create(req.body)
 })
 
+app.post('/admin/vote/:type/', function(req, res) {
+	var type = req.params.type,
+			id = req.body.id,
+			user = req.body.user
+
+	db.requests.select(id).then(function(result) {
+		var yesvotes = result[0].yesvotes,
+				novotes = result[0].novotes
+
+		if (yesvotes == undefined) {
+			var yesvotes = []
+		}
+		if (novotes == undefined) {
+			var novotes = []
+		}
+
+		if (yesvotes.indexOf(user) > -1) {
+			yesvotes.splice(yesvotes.indexOf(user))
+		}
+		if (novotes.indexOf(user) > -1) {
+			novotes.splice(novotes.indexOf(user))
+		}
+
+		if (type == "approve") {
+			yesvotes.push(user)
+		}
+		else if (type == "reject") {
+			novotes.push(user)
+		}
+
+		db.requests.vote(id, yesvotes, novotes)
+	})
+})
+
+app.post('/admin/delete/', function(req, res) {
+	var id = req.body.id
+
+	db.requests.delete(id)
+})
+
 // GET 404
 app.get('*', function(req, res, next) {
 	res.render('error', {title: "Error 404", body: "That page was not found."});

@@ -20,6 +20,27 @@ var requests = {
         resolve(db)
       })
     })
+  },
+  select: (id) => {
+    return new Promise((resolve, reject) => {
+      RequestModel.filter({id: id}).run().then((db) => {
+        resolve(db)
+      })
+    })
+  },
+  vote: (id, yesvotes, novotes) => {
+    return new Promise((resolve, reject) => {
+      RequestModel.filter({id: id}).update({yesvotes: yesvotes, novotes: novotes}).run().then((db) => {
+        resolve(db)
+      })
+    })
+  },
+  delete: (id) => {
+    return new Promise((resolve, reject) => {
+      RequestModel.filter({id: id}).delete().run().then((db) => {
+        resolve(db)
+      })
+    })
   }
 }
 
