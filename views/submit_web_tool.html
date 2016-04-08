@@ -29,11 +29,11 @@
         <br />
         <h6>Q7: Do you require data from the Twitch API?</h6>
         <p>
-          <input type="radio" name="tos" id="web_tool-api-yes">
+          <input type="radio" name="api" id="web_tool-api-yes">
           <label for="web_tool-api-yes">Yes</label>
         </p>
         <p>
-          <input type="radio" name="tos" id="web_tool-api-no">
+          <input type="radio" name="api" id="web_tool-api-no">
           <label for="web_tool-api-no">No</label>
         </p>
         <br style="display:none" id="web_tool-api1-br"/>
@@ -97,7 +97,7 @@
           <textarea id="web_tool-beta" class="materialize-textarea"></textarea>
         </p>
         <br />
-        <a id="web_tool-submit" class="btn grey darken-1">Submit</a>
+        <a id="web_tool-submit" data-username="{{loggedin}}" class="btn grey darken-1">Submit</a>
       </form>
     </div>
   </div>

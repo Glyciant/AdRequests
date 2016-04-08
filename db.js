@@ -7,7 +7,20 @@ var	config = require('./config'),
   RequestModel = thinky.createModel('requests', schema.requests, schema.primarykey.requests);
 
 var requests = {
-
+  getAll: () => {
+    return new Promise((resolve, reject) => {
+      RequestModel.then((db) => {
+        resolve(db)
+      })
+    })
+  },
+  create: (object) => {
+    return new Promise((resolve, reject) => {
+      RequestModel.insert(object).run().then((db) => {
+        resolve(db)
+      })
+    })
+  }
 }
 
 module.exports = {

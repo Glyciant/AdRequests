@@ -1,0 +1,166 @@
+{% include "./header.html"%}
+  <div class="row white-text">
+    <div class="col s12">
+      <table class="white-text">
+        <thead>
+          <th>Reddit Name</th>
+          <th>Twitch Name</th>
+          <th>Request Type</th>
+          <th>Request Data</th>
+          <th>Comment</th>
+          <th>Vote</th>
+          <th>Respond</th>
+        </thead>
+        <tbody>
+          {%for request in data%}
+            <tr id="request-{{request.id}}">
+              <td>{{request.redditname}}</td>
+              <td>{{request.twitchname}}</td>
+              <td>
+                {%if request.type == "video"%}
+                Video
+                {%elseif request.type == "web_tool"%}
+                Web Tool
+                {%elseif request.type == "desktop_tool"%}
+                Desktop Tool
+                {%elseif request.type == "ama_streamer"%}
+                Streamer AMA
+                {%elseif request.type == "ama_business"%}
+                Business AMA
+                {%elseif request.type == "other"%}
+                Other
+                {%endif%}
+              <td><a class="btn grey lighten-4 black-text modal-trigger" href="#modal-view-{{request.id}}"><i class="large material-icons">present_to_all</i></a></td>
+              <div id="modal-view-{{request.id}}" class="modal">
+                <div class="modal-content black-text">
+                  <h4>Request by {{request.redditname}} - Data</h4>
+                  <hr>
+                  {%if request.type == "video"%}
+                    <p><strong>URL:</strong> <a href="{{request.requestdata.url}}">{{request.requestdata.url}}</a></p>
+                    <br>
+                    <p><strong>Owner:</strong> {{request.requestdata.owner}}</p>
+                    <br>
+                    <p><strong>Description:</strong> {{request.requestdata.description}}</p>
+                    <br>
+                  {%elseif request.type == "web_tool" || request.type == "desktop_tool"%}
+                    <p><strong>Name:</strong> {{request.requestdata.name}}</p>
+                    <br>
+                    <p><strong>URL:</strong> <a href="{{request.requestdata.url}}">{{request.requestdata.url}}</a></p>
+                    <br>
+                    <p><strong>Description:</strong> {{request.requestdata.description}}</p>
+                    <br>
+                    <p><strong>User Data Required:</strong> {{request.requestdata.data}}</p>
+                    <br>
+                    <p><strong>Twitch API Intergration:</strong> {{request.requestdata.api}}</p>
+                    {%if request.requestdata.api == "Yes"%}
+                      <p><strong>API Data Required:</strong> {{request.requestdata.apidata}}</p>
+                      <p><strong>Scopes Used:</strong> {{request.requestdata.scopes}}</p>
+                      <p><strong>Scopes Description:</strong> {{request.requestdata.scopesdescription}}</p>
+                    {%endif%}
+                    <br>
+                    <p><strong>Terms of Service:</strong> {{request.requestdata.tos}}</p>
+                    {%if request.requestdata.tos == "Yes"%}
+                      <p><strong>Terms of Service Link:</strong> <a href="{{request.requestdata.toslink}}">{{request.requestdata.toslink}}</a></p><br>
+                    {%endif%}
+                    <br>
+                    <p><strong>Changes after Beta:</strong> {{request.requestdata.beta}}</p>
+                    {%if request.requestdata.beta == "Yes"%}
+                      <p><strong>Description of Changes:</strong> {{request.requestdata.betachanges}}</p>
+                    {%endif%}
+                    <br>
+                  {%elseif request.type == "ama_streamer"%}
+                    <p><strong>Twitch Partner:</strong> {{request.requestdata.partner}}</p>
+                    {%if request.requestdata.partnertime == "Yes"%}
+                      <p><strong>Length of Partnership:</strong> {{request.requestdata.partnertime}}</p>
+                    {%endif%}
+                    <br>
+                    <p><strong>Average Viewers:</strong> {{request.requestdata.viewers}}</p>
+                    <br>
+                    <p><strong>Desired Start Date:</strong> {{request.requestdata.start}}</p>
+                    <br>
+                    <p><strong>Desired Length (Days):</strong> {{request.requestdata.length}}</p>
+                    <br>
+                  {%elseif request.type == "ama_business"%}
+                    <p><strong>Business Name:</strong> {{request.requestdata.name}}</p>
+                    <br>
+                    <p><strong>Product Name:</strong> {{request.requestdata.productname}}</p>
+                    <br>
+                    <p><strong>User Data Required:</strong> {{request.requestdata.userdata}}</p>
+                    <br>
+                    <p><strong>Has Permission:</strong> {{request.requestdata.permission}}</p>
+                    <br>
+                    <p><strong>Terms of Service:</strong> {{request.requestdata.tos}}</p>
+                    {%if request.requestdata.tos == "Yes"%}
+                      <p><strong>Terms of Service Link:</strong> <a href="{{request.requestdata.toslink}}">{{request.requestdata.toslink}}</a></p><br>
+                    {%endif%}
+                    <br>
+                    <p><strong>Desired Start Date:</strong> {{request.requestdata.start}}</p>
+                    <br>
+                    <p><strong>Desired Length (Days):</strong> {{request.requestdata.length}}</p>
+                    <br>
+                  {%elseif request.type == "other"%}
+                    <p><strong>Description:</strong> {{request.requestdata.description}}</p>
+                    <br>
+                  {%endif%}
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close btn grey lighten-4 black-text">Close</a>
+                </div>
+              </div>
+              <td><a class="btn grey lighten-4 black-text modal-trigger" href="#modal-comments-{{request.id}}"><i class="large material-icons">comment</i></a></td>
+              <div id="modal-comments-{{request.id}}" class="modal">
+                <div class="modal-content black-text">
+                  <h4>Request by {{request.redditname}} - Comments</h4>
+                  <hr>
+                  {%for comment in request.comments%}
+                    <h5>{{comment.mod}}</h5>
+                    <p>{{comment.body}}</p>
+                    <hr>
+                  {%endfor%}
+                  <h4>Add Comment</h4>
+                  <textarea id="add-comment-{{request.id}}"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close btn grey lighten-4 black-text">Close</a>
+                  <a href="#!" class="modal-close btn grey lighten-4 black-text" data-id="{{request.id}}" id="mail-tags-post">Save and Close</a>
+                </div>
+              </div>
+              <td>
+                <a class="btn green darken-4" href="javascript:;" id="vote-approve" data-id="{{request.id}}"><i class="large material-icons">done</i></a>
+                <a class="btn red darken-4" href="javascript:;" id="vote-reject" data-id="{{request.id}}"><i class="large material-icons">not_interested</i></a>
+              </td>
+              <td>
+                <a class="modal-trigger btn green darken-4" href="#modal-confirm-approve-{{request.id}}"><i class="large material-icons">done</i></a>
+                <div id="modal-confirm-approve-{{request.id}}" class="modal">
+                  <div class="modal-content black-text">
+                    <h4>Request by {{request.redditname}}</h4>
+                    <hr>
+                    <p>Are you sure you want to approve this request?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-close btn red darken-4">No</a>
+                    <a href="#!" class="modal-close btn green darken-4" data-id="{{request.id}}" id="approve-{{request.id}}">Yes</a>
+                  </div>
+                </div>
+                <a class="modal-trigger btn red darken-4" href="#modal-confirm-reject-{{request.id}}"><i class="large material-icons">not_interested</i></a>
+                <div id="modal-confirm-reject-{{request.id}}" class="modal">
+                  <div class="modal-content black-text">
+                    <h4>Request by {{request.redditname}}</h4>
+                    <hr>
+                    <p>Are you sure you want to reject this request?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-close btn red darken-4">No</a>
+                    <a href="#!" class="modal-close btn green darken-4" data-id="{{request.id}}" id="reject-{{request.id}}">Yes</a>
+                  </div>
+                </div>
+              </td>
+
+            </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="/js/admin.js"></script>
+{% include "./footer.html"%}

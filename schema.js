@@ -19,7 +19,8 @@ schema.requests = {
   novotes: type.array(),
   open: type.boolean(),
   approved: type.boolean(),
-  requestdata: type.object()
+  requestdata: type.object(),
+  comments: type.array()
 };
 
 module.exports = schema

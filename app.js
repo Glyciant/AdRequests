@@ -69,6 +69,10 @@ app.get('/auth/logout', function(req, res) {
 	});
 });
 
+app.get('/success/', function(req, res) {
+	res.render('error', {title: "Thanks!", body: "Your request has now been submitted."})
+})
+
 app.get('*', function(req, res, next) {
 	if (!app.locals.loggedin) {
 		res.render('error', {title: "Unauthorized", body: "You must login to access this page."})
@@ -115,7 +119,19 @@ app.get('*', function(req, res, next) {
 	}
 });
 
+app.get('/admin/', function(req, res) {
+	db.requests.getAll().then(function(result) {
+		res.render('admin', {data: result})
+	})
+})
+
 // Posts
+
+app.post('/submit_request/', function(req, res) {
+	req.body.approved = (req.body.approved == "true")
+	req.body.open = (req.body.open == "true")
+	db.requests.create(req.body)
+})
 
 // GET 404
 app.get('*', function(req, res, next) {
