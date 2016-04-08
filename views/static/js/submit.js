@@ -1,5 +1,5 @@
 $(document).delegate("#page1-next", "click", function() {
-  var twitchname = $("#page1-twitchname").val()
+  var twitchname = $("#page1-twitchname").val();
 
   if (twitchname !== "") {
     if ($('#type-video').is(':checked')) {
@@ -21,13 +21,13 @@ $(document).delegate("#page1-next", "click", function() {
       window.location.href = '/submit/other?twitchname='+twitchname;
     }
     else {
-      Materialize.toast("Please make sure to complete all questions!", 4000)
+      Materialize.toast("Please make sure to complete all questions!", 4000);
     }
   }
   else {
-    Materialize.toast("Please make sure to complete all questions!", 4000)
+    Materialize.toast("Please make sure to complete all questions!", 4000);
   }
-})
+});
 
 $(document).ready(function() {
 
@@ -47,124 +47,124 @@ $(document).ready(function() {
   };
 
   $("#ama-streamer-partner-yes").change(function() {
-    $("#ama-streamer-twitch-partner-time").slideDown()
-    $("#ama-streamer-twitch-partner-time-input").slideDown()
-  })
+    $("#ama-streamer-twitch-partner-time").slideDown();
+    $("#ama-streamer-twitch-partner-time-input").slideDown();
+  });
   $("#ama-streamer-partner-no").change(function() {
-    $("#ama-streamer-twitch-partner-time").slideUp()
-    $("#ama-streamer-twitch-partner-time-input").slideUp()
-  })
+    $("#ama-streamer-twitch-partner-time").slideUp();
+    $("#ama-streamer-twitch-partner-time-input").slideUp();
+  });
 
   $("#ama-business-tos-yes").change(function() {
-    $("#ama-business-product-tos").slideDown()
-    $("#ama-business-product-tos-input").slideDown()
-  })
+    $("#ama-business-product-tos").slideDown();
+    $("#ama-business-product-tos-input").slideDown();
+  });
   $("#ama-business-tos-no").change(function() {
-    $("#ama-business-product-tos").slideUp()
-    $("#ama-business-product-tos-input").slideUp()
-  })
+    $("#ama-business-product-tos").slideUp();
+    $("#ama-business-product-tos-input").slideUp();
+  });
 
   $("#web_tool-api-yes").change(function() {
-    $("#web_tool-api1").slideDown()
-    $("#web_tool-api1-input").slideDown()
-    $("#web_tool-api1-br").slideDown()
-    $("#web_tool-api2").slideDown()
-    $("#web_tool-api2-input").slideDown()
-    $("#web_tool-api2-br").slideDown()
-    $("#web_tool-api3").slideDown()
-    $("#web_tool-api3-input").slideDown()
-    $("#web_tool-api3-br").slideDown()
-  })
+    $("#web_tool-api1").slideDown();
+    $("#web_tool-api1-input").slideDown();
+    $("#web_tool-api1-br").slideDown();
+    $("#web_tool-api2").slideDown();
+    $("#web_tool-api2-input").slideDown();
+    $("#web_tool-api2-br").slideDown();
+    $("#web_tool-api3").slideDown();
+    $("#web_tool-api3-input").slideDown();
+    $("#web_tool-api3-br").slideDown();
+  });
   $("#web_tool-api-no").change(function() {
-    $("#web_tool-api1").slideUp()
-    $("#web_tool-api1-input").slideUp()
-    $("#web_tool-api1-br").slideUp()
-    $("#web_tool-api2").slideUp()
-    $("#web_tool-api2-input").slideUp()
-    $("#web_tool-api2-br").slideUp()
-    $("#web_tool-api3").slideUp()
-    $("#web_tool-api3-input").slideUp()
-    $("#web_tool-api3-br").slideUp()
-  })
+    $("#web_tool-api1").slideUp();
+    $("#web_tool-api1-input").slideUp();
+    $("#web_tool-api1-br").slideUp();
+    $("#web_tool-api2").slideUp();
+    $("#web_tool-api2-input").slideUp();
+    $("#web_tool-api2-br").slideUp();
+    $("#web_tool-api3").slideUp();
+    $("#web_tool-api3-input").slideUp();
+    $("#web_tool-api3-br").slideUp();
+  });
   $("#web_tool-tos-yes").change(function() {
-    $("#web_tool-service-tos").slideDown()
-    $("#web_tool-service-tos-input").slideDown()
-  })
+    $("#web_tool-service-tos").slideDown();
+    $("#web_tool-service-tos-input").slideDown();
+  });
   $("#web_tool-tos-no").change(function() {
-    $("#web_tool-service-tos").slideUp()
-    $("#web_tool-service-tos-input").slideUp()
-  })
+    $("#web_tool-service-tos").slideUp();
+    $("#web_tool-service-tos-input").slideUp();
+  });
   $("#web_tool-code-yes").change(function() {
-    $("#web_tool-open-code").slideDown()
-    $("#web_tool-open-code-input").slideDown()
-  })
+    $("#web_tool-open-code").slideDown();
+    $("#web_tool-open-code-input").slideDown();
+  });
   $("#web_tool-code-no").change(function() {
-    $("#web_tool-open-code").slideUp()
-    $("#web_tool-open-code-input").slideUp()
-  })
+    $("#web_tool-open-code").slideUp();
+    $("#web_tool-open-code-input").slideUp();
+  });
   $("#web_tool-beta-yes").change(function() {
-    $("#web_tool-beta-change").slideDown()
-    $("#web_tool-beta-change-input").slideDown()
-  })
+    $("#web_tool-beta-change").slideDown();
+    $("#web_tool-beta-change-input").slideDown();
+  });
   $("#web_tool-beta-no").change(function() {
-    $("#web_tool-beta-change").slideUp()
-    $("#web_tool-beta-change-input").slideUp()
-  })
+    $("#web_tool-beta-change").slideUp();
+    $("#web_tool-beta-change-input").slideUp();
+  });
 
   $("#desktop_tool-api-yes").change(function() {
-    $("#desktop_tool-api1").slideDown()
-    $("#desktop_tool-api1-input").slideDown()
-    $("#desktop_tool-api1-br").slideDown()
-    $("#desktop_tool-api2").slideDown()
-    $("#desktop_tool-api2-input").slideDown()
-    $("#desktop_tool-api2-br").slideDown()
-    $("#desktop_tool-api3").slideDown()
-    $("#desktop_tool-api3-input").slideDown()
-    $("#desktop_tool-api3-br").slideDown()
-  })
+    $("#desktop_tool-api1").slideDown();
+    $("#desktop_tool-api1-input").slideDown();
+    $("#desktop_tool-api1-br").slideDown();
+    $("#desktop_tool-api2").slideDown();
+    $("#desktop_tool-api2-input").slideDown();
+    $("#desktop_tool-api2-br").slideDown();
+    $("#desktop_tool-api3").slideDown();
+    $("#desktop_tool-api3-input").slideDown();
+    $("#desktop_tool-api3-br").slideDown();
+  });
   $("#desktop_tool-api-no").change(function() {
-    $("#desktop_tool-api1").slideUp()
-    $("#desktop_tool-api1-input").slideUp()
-    $("#desktop_tool-api1-br").slideUp()
-    $("#desktop_tool-api2").slideUp()
-    $("#desktop_tool-api2-input").slideUp()
-    $("#desktop_tool-api2-br").slideUp()
-    $("#desktop_tool-api3").slideUp()
-    $("#desktop_tool-api3-input").slideUp()
-    $("#desktop_tool-api3-br").slideUp()
-  })
+    $("#desktop_tool-api1").slideUp();
+    $("#desktop_tool-api1-input").slideUp();
+    $("#desktop_tool-api1-br").slideUp();
+    $("#desktop_tool-api2").slideUp();
+    $("#desktop_tool-api2-input").slideUp();
+    $("#desktop_tool-api2-br").slideUp();
+    $("#desktop_tool-api3").slideUp();
+    $("#desktop_tool-api3-input").slideUp();
+    $("#desktop_tool-api3-br").slideUp();
+  });
   $("#desktop_tool-tos-yes").change(function() {
-    $("#desktop_tool-service-tos").slideDown()
-    $("#desktop_tool-service-tos-input").slideDown()
-  })
+    $("#desktop_tool-service-tos").slideDown();
+    $("#desktop_tool-service-tos-input").slideDown();
+  });
   $("#desktop_tool-tos-no").change(function() {
-    $("#desktop_tool-service-tos").slideUp()
-    $("#desktop_tool-service-tos-input").slideUp()
-  })
+    $("#desktop_tool-service-tos").slideUp();
+    $("#desktop_tool-service-tos-input").slideUp();
+  });
   $("#desktop_tool-code-yes").change(function() {
-    $("#desktop_tool-open-code").slideDown()
-    $("#desktop_tool-open-code-input").slideDown()
-  })
+    $("#desktop_tool-open-code").slideDown();
+    $("#desktop_tool-open-code-input").slideDown();
+  });
   $("#desktop_tool-code-no").change(function() {
-    $("#desktop_tool-open-code").slideUp()
-    $("#desktop_tool-open-code-input").slideUp()
-  })
+    $("#desktop_tool-open-code").slideUp();
+    $("#desktop_tool-open-code-input").slideUp();
+  });
   $("#desktop_tool-beta-yes").change(function() {
-    $("#desktop_tool-beta-change").slideDown()
-    $("#desktop_tool-beta-change-input").slideDown()
-  })
+    $("#desktop_tool-beta-change").slideDown();
+    $("#desktop_tool-beta-change-input").slideDown();
+  });
   $("#desktop_tool-beta-no").change(function() {
-    $("#desktop_tool-beta-change").slideUp()
-    $("#desktop_tool-beta-change-input").slideUp()
-  })
+    $("#desktop_tool-beta-change").slideUp();
+    $("#desktop_tool-beta-change-input").slideUp();
+  });
 
   $("#video-submit").click(function() {
     var twitchname = getUrlParameter("twitchname"),
         url = $("#video-url").val(),
-        description = $("#video-description").val()
-
-    if ($('#video-owner-yes').is(':checked')) { var owner = "Yes" }
-    else if ($('#video-owner-no').is(':checked')) { var owner = "No" }
+        description = $("#video-description").val();
+    var owner;
+    if ($('#video-owner-yes').is(':checked')) { owner = "Yes"; }
+    else if ($('#video-owner-no').is(':checked')) { owner = "No"; }
 
     if (url !== "" && description !== "" && owner !== undefined) {
       var requestdata = {
@@ -178,7 +178,7 @@ $(document).ready(function() {
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false
+          approved = false;
 
       $.post("/submit_request/", {
         id: id,
@@ -190,68 +190,76 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata
-      })
+      });
       window.location.href = '/success/';
     }
     else {
-      Materialize.toast("Please make sure to complete all questions!", 4000)
+      Materialize.toast("Please make sure to complete all questions!", 4000);
     }
-  })
+  });
 
   $("#web_tool-submit").click(function() {
     var twitchname = getUrlParameter("twitchname"),
         name = $("#web_tool-name").val(),
         url = $("#web_tool-url").val(),
         description = $("#web_tool-description").val(),
-        data = $("#web_tool-data").val()
+        data = $("#web_tool-data").val();
 
-    if ($('#web_tool-api-yes').is(':checked')) { var api = "Yes" }
-    else if ($('#web_tool-api-no').is(':checked')) { var api = "No" }
+    var api;
+    if ($('#web_tool-api-yes').is(':checked')) { api = "Yes"; }
+    else if ($('#web_tool-api-no').is(':checked')) { api = "No"; }
 
     if (api == "Yes") {
       var apidata = $("#web_tool-apidata").val(),
           scopes = $("#web_tool-scopes").val(),
-          scopesdescription = $("#web_tool-scopesdescription").val()
+          scopesdescription = $("#web_tool-scopesdescription").val();
 
-      if (apidata == "" && scopes == "" && scopesdescription == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (apidata === "" && scopes === "" && scopesdescription === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
-    if ($('#web_tool-tos-yes').is(':checked')) { var tos = "Yes" }
-    else if ($('#web_tool-tos-no').is(':checked')) { var tos = "No" }
+    var tos;
+    if ($('#web_tool-tos-yes').is(':checked')) {
+      tos = "Yes";
+    }
+    else if ($('#web_tool-tos-no').is(':checked')) {
+      tos = "No";
+    }
 
     if (tos == "Yes") {
-      var toslink = $("#web_tool-tos").val()
+      var toslink = $("#web_tool-tos").val();
 
-      if (toslink == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (toslink === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
-    if ($('#web_tool-code-yes').is(':checked')) { var code = "Yes" }
-    else if ($('#web_tool-code-no').is(':checked')) { var code = "No" }
+    var code;
+    if ($('#web_tool-code-yes').is(':checked')) { code = "Yes"; }
+    else if ($('#web_tool-code-no').is(':checked')) { code = "No"; }
 
-    if (code == "Yes") {
-      var codelink = $("#web_tool-code").val()
+    if (code === "Yes") {
+      var codelink = $("#web_tool-code").val();
 
-      if (codelink == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (codelink === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
-    if ($('#web_tool-beta-yes').is(':checked')) { var beta = "Yes" }
-    else if ($('#web_tool-beta-no').is(':checked')) { var beta = "No" }
+    var beta;
+    if ($('#web_tool-beta-yes').is(':checked')) { beta = "Yes"; }
+    else if ($('#web_tool-beta-no').is(':checked')) { beta = "No"; }
 
-    if (beta == "Yes") {
-      var betachanges = $("#web_tool-beta").val()
+    if (beta === "Yes") {
+      var betachanges = $("#web_tool-beta").val();
 
-      if (betachanges == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (betachanges === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
@@ -277,7 +285,7 @@ $(document).ready(function() {
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false
+          approved = false;
 
       $.post("/submit_request/", {
         id: id,
@@ -289,68 +297,72 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata
-      })
+      });
       window.location.href = '/success/';
     }
     else {
-      Materialize.toast("Please make sure to complete all questions!", 4000)
+      Materialize.toast("Please make sure to complete all questions!", 4000);
     }
-  })
+  });
 
   $("#desktop_tool-submit").click(function() {
     var twitchname = getUrlParameter("twitchname"),
         name = $("#desktop_tool-name").val(),
         url = $("#desktop_tool-url").val(),
         description = $("#desktop_tool-description").val(),
-        data = $("#desktop_tool-data").val()
+        data = $("#desktop_tool-data").val();
 
-    if ($('#desktop_tool-api-yes').is(':checked')) { var api = "Yes" }
-    else if ($('#desktop_tool-api-no').is(':checked')) { var api = "No" }
+    var api;
+    if ($('#desktop_tool-api-yes').is(':checked')) { api = "Yes"; }
+    else if ($('#desktop_tool-api-no').is(':checked')) { api = "No"; }
 
-    if (api == "Yes") {
+    if (api === "Yes") {
       var apidata = $("#desktop_tool-apidata").val(),
           scopes = $("#desktop_tool-scopes").val(),
-          scopesdescription = $("#desktop_tool-scopesdescription").val()
+          scopesdescription = $("#desktop_tool-scopesdescription").val();
 
-      if (apidata == "" && scopes == "" && scopesdescription == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (apidata === "" && scopes === "" && scopesdescription === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
-    if ($('#desktop_tool-tos-yes').is(':checked')) { var tos = "Yes" }
-    else if ($('#desktop_tool-tos-no').is(':checked')) { var tos = "No" }
+    var tos;
+    if ($('#desktop_tool-tos-yes').is(':checked')) { tos = "Yes"; }
+    else if ($('#desktop_tool-tos-no').is(':checked')) { tos = "No"; }
 
     if (tos == "Yes") {
-      var toslink = $("#desktop_tool-tos").val()
+      var toslink = $("#desktop_tool-tos").val();
 
-      if (toslink == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (toslink === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
-    if ($('#desktop_tool-code-yes').is(':checked')) { var code = "Yes" }
-    else if ($('#desktop_tool-code-no').is(':checked')) { var code = "No" }
+    var code;
+    if ($('#desktop_tool-code-yes').is(':checked')) { code = "Yes"; }
+    else if ($('#desktop_tool-code-no').is(':checked')) { code = "No"; }
 
     if (code == "Yes") {
-      var codelink = $("#desktop_tool-code").val()
+      var codelink = $("#desktop_tool-code").val();
 
-      if (codelink == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (codelink === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
-    if ($('#desktop_tool-beta-yes').is(':checked')) { var beta = "Yes" }
-    else if ($('#desktop_tool-beta-no').is(':checked')) { var beta = "No" }
+    var beta;
+    if ($('#desktop_tool-beta-yes').is(':checked')) { beta = "Yes"; }
+    else if ($('#desktop_tool-beta-no').is(':checked')) { beta = "No"; }
 
     if (beta == "Yes") {
-      var betachanges = $("#desktop_tool-beta").val()
+      var betachanges = $("#desktop_tool-beta").val();
 
-      if (betachanges == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (betachanges === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
@@ -376,7 +388,7 @@ $(document).ready(function() {
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false
+          approved = false;
 
       $.post("/submit_request/", {
         id: id,
@@ -388,29 +400,30 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata
-      })
+      });
       window.location.href = '/success/';
     }
     else {
-      Materialize.toast("Please make sure to complete all questions!", 4000)
+      Materialize.toast("Please make sure to complete all questions!", 4000);
     }
-  })
+  });
 
   $("#ama-streamer-submit").click(function() {
     var twitchname = getUrlParameter("twitchname"),
         viewers = $("#ama-streamer-viewers").val(),
         start = $("#ama-streamer-start").val(),
-        length = $("#ama-streamer-length").val()
+        length = $("#ama-streamer-length").val();
 
-    if ($('#ama-streamer-partner-yes').is(':checked')) { var partner = "Yes" }
-    else if ($('#ama-streamer-partner-no').is(':checked')) { var partner = "No" }
+    var partner;
+    if ($('#ama-streamer-partner-yes').is(':checked')) { partner = "Yes"; }
+    else if ($('#ama-streamer-partner-no').is(':checked')) { partner = "No"; }
 
     if (partner == "Yes") {
-      var partnertime = $("#ama-streamer-partner-time").val()
+      var partnertime = $("#ama-streamer-partner-time").val();
 
-      if (partnertime == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (partnertime === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
@@ -428,7 +441,7 @@ $(document).ready(function() {
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false
+          approved = false;
 
       $.post("/submit_request/", {
         id: id,
@@ -440,13 +453,13 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata
-      })
+      });
       window.location.href = '/success/';
     }
     else {
-      Materialize.toast("Please make sure to complete all questions!", 4000)
+      Materialize.toast("Please make sure to complete all questions!", 4000);
     }
-  })
+  });
 
   $("#ama-business-submit").click(function() {
     var twitchname = getUrlParameter("twitchname"),
@@ -454,20 +467,22 @@ $(document).ready(function() {
         productname = $("#ama-business-product-name").val(),
         userdata = $("#ama-business-data").val(),
         start = $("#ama-business-start").val(),
-        length = $("#ama-business-length").val()
+        length = $("#ama-business-length").val();
 
-    if ($('#ama-business-permission-yes').is(':checked')) { var permission = "Yes" }
-    else if ($('#ama-business-permission-no').is(':checked')) { var permission = "No" }
+    var permission;
+    if ($('#ama-business-permission-yes').is(':checked')) { permission = "Yes"; }
+    else if ($('#ama-business-permission-no').is(':checked')) { permission = "No"; }
 
-    if ($('#ama-business-tos-yes').is(':checked')) { var tos = "Yes" }
-    else if ($('#ama-business-tos-no').is(':checked')) { var tos = "No" }
+    var tos;
+    if ($('#ama-business-tos-yes').is(':checked')) { tos = "Yes"; }
+    else if ($('#ama-business-tos-no').is(':checked')) { tos = "No"; }
 
     if (tos == "Yes") {
-      var toslink = $("#ama-streamer-partner-time").val()
+      var toslink = $("#ama-streamer-partner-time").val();
 
-      if (toslink == "") {
-        Materialize.toast("Please make sure to complete all questions!", 4000)
-        return
+      if (toslink === "") {
+        Materialize.toast("Please make sure to complete all questions!", 4000);
+        return;
       }
     }
 
@@ -488,7 +503,7 @@ $(document).ready(function() {
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false
+          approved = false;
 
       $.post("/submit_request/", {
         id: id,
@@ -500,17 +515,17 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata
-      })
+      });
       window.location.href = '/success/';
     }
     else {
-      Materialize.toast("Please make sure to complete all questions!", 4000)
+      Materialize.toast("Please make sure to complete all questions!", 4000);
     }
-  })
+  });
 
   $("#other-submit").click(function() {
     var twitchname = getUrlParameter("twitchname"),
-        description = $("#other-description").val()
+        description = $("#other-description").val();
 
     if (description !== "") {
       var requestdata = {
@@ -522,7 +537,7 @@ $(document).ready(function() {
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false
+          approved = false;
 
       $.post("/submit_request/", {
         id: id,
@@ -534,11 +549,11 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata
-      })
+      });
       window.location.href = '/success/';
     }
     else {
-      Materialize.toast("Please make sure to complete all questions!", 4000)
+      Materialize.toast("Please make sure to complete all questions!", 4000);
     }
-  })
-})
+  });
+});

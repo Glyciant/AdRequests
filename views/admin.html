@@ -112,13 +112,13 @@
                 <div class="modal-content black-text">
                   <h4>Request by {{request.redditname}} - Comments</h4>
                   <hr>
-                  {%for comment in request.comments%}
-                    <h5>{{comment.mod}}</h5>
-                    <p>{{comment.body}}</p>
+                  {%for mod, comment in request.comments%}
+                    <h5>{{mod}}</h5>
+                    <p id="comment-{{request.id}}-{{mod}}">{{comment}}</p>
                     <hr>
                   {%endfor%}
                   <h4>Add Comment</h4>
-                  <textarea id="add-comment-{{request.id}}"></textarea>
+                  <textarea id="add-comment-{{request.id}}">{%if request.comments[username]%}{{request.comments[username]|safe}}{%endif%}</textarea>
                 </div>
                 <div class="modal-footer">
                   <a href="#!" class="modal-close btn grey lighten-4 black-text">Close</a>
