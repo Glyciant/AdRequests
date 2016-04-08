@@ -13,8 +13,6 @@ $('#mail-tags-post').on('click', function() {
       comment: comment
     },
     success: function(data) {
-      var comments = data.comments;
-      var username = data.username;
       $('#comment-' + id + '-' + username).text(data.comments[data.username]);
     }
   });
