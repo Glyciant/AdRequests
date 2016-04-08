@@ -241,7 +241,7 @@ $(document).ready(function() {
     if ($('#web_tool-code-yes').is(':checked')) { code = "Yes"; }
     else if ($('#web_tool-code-no').is(':checked')) { code = "No"; }
 
-    if (code === "Yes") {
+    if (code == "Yes") {
       var codelink = $("#web_tool-code").val();
 
       if (codelink === "") {
@@ -254,7 +254,7 @@ $(document).ready(function() {
     if ($('#web_tool-beta-yes').is(':checked')) { beta = "Yes"; }
     else if ($('#web_tool-beta-no').is(':checked')) { beta = "No"; }
 
-    if (beta === "Yes") {
+    if (beta == "Yes") {
       var betachanges = $("#web_tool-beta").val();
 
       if (betachanges === "") {
@@ -316,7 +316,7 @@ $(document).ready(function() {
     if ($('#desktop_tool-api-yes').is(':checked')) { api = "Yes"; }
     else if ($('#desktop_tool-api-no').is(':checked')) { api = "No"; }
 
-    if (api === "Yes") {
+    if (api == "Yes") {
       var apidata = $("#desktop_tool-apidata").val(),
           scopes = $("#desktop_tool-scopes").val(),
           scopesdescription = $("#desktop_tool-scopesdescription").val();
