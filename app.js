@@ -55,10 +55,10 @@ app.get('/auth/login/', function(req, res) {
 				'Authorization': 'bearer ' + data.access_token
 			}
 		}).on('complete', function(finaldata) {
-			req.session.name = finaldata.name
-			req.session.auth = data.access_token
-			req.session.isMod = helpers.isMod(req.session.name)
-			res.redirect('/')
+			req.session.name = finaldata.name;
+			req.session.auth = data.access_token;
+			req.session.isMod = helpers.isMod(req.session.name);
+			res.redirect('/');
 		});
 	});
 });
@@ -70,107 +70,126 @@ app.get('/auth/logout', function(req, res) {
 });
 
 app.get('/success/', function(req, res) {
-	res.render('error', {title: "Thanks!", body: "Your request has now been submitted."})
-})
+	res.render('error', {title: "Thanks!", body: "Your request has now been submitted."});
+});
 
 app.get('*', function(req, res, next) {
 	if (!app.locals.loggedin) {
-		res.render('error', {title: "Unauthorized", body: "You must login to access this page."})
+		res.render('error', {title: "Unauthorized", body: "You must login to access this page."});
 	}
 	else {
-		next()
+		next();
 	}
 });
 
 app.get('/submit/', function(req, res) {
-	res.render('submit')
-})
+	res.render('submit');
+});
 
 app.get('/submit/video/', function(req, res) {
-	res.render('submit_video')
-})
+	res.render('submit_video');
+});
 
 app.get('/submit/web_tool/', function(req, res) {
-	res.render('submit_web_tool')
-})
+	res.render('submit_web_tool');
+});
 
 app.get('/submit/desktop_tool', function(req, res) {
-	res.render('submit_desktop_tool')
-})
+	res.render('submit_desktop_tool');
+});
 
 app.get('/submit/ama/streamer', function(req, res) {
-	res.render('submit_ama_streamer')
-})
+	res.render('submit_ama_streamer');
+});
 
 app.get('/submit/ama/business', function(req, res) {
-	res.render('submit_ama_business')
-})
+	res.render('submit_ama_business');
+});
 
 app.get('/submit/other/', function(req, res) {
-	res.render('submit_other')
-})
+	res.render('submit_other');
+});
 
 app.get('*', function(req, res, next) {
-	if (helpers.isMod(app.locals.loggedin) == true) {
+	if (helpers.isMod(app.locals.loggedin) === true) {
 		next();
 	}
 	else {
-		res.render('error', {title: "Unauthorized", body: "You do not have permission to access this page."})
+		res.render('error', {title: "Unauthorized", body: "You do not have permission to access this page."});
 	}
 });
 
 app.get('/admin/', function(req, res) {
 	db.requests.getAll().then(function(result) {
-		res.render('admin', {data: result})
-	})
-})
+		var username = req.session.name.toLowerCase();
+		res.render('admin', {data: result, username: username});
+	});
+});
 
 // Posts
 
 app.post('/submit_request/', function(req, res) {
-	req.body.approved = (req.body.approved == "true")
-	req.body.open = (req.body.open == "true")
-	db.requests.create(req.body)
-})
+	req.body.approved = (req.body.approved == "true");
+	req.body.open = (req.body.open == "true");
+	db.requests.create(req.body);
+});
+
+app.post('/data/update-comments', function(req, res) {
+	var username = req.session.name;
+	if (helpers.isMod(req.session.name)) {
+		username = username.toLowerCase();
+		var id = req.body.id;
+		var comment = req.body.comment;
+		db.requests.select(id).then(function(result) {
+			var comments = result[0].comments;
+			comments[username] = comment;
+			db.requests.updateComments({id: id, comments: comments}).then(function(result) {
+				res.json({success: true, comments: result[0].comments, username: username});
+			});
+		});
+	} else {
+		res.json({success: false, message: "Unauthorized"});
+	}
+});
 
 app.post('/admin/vote/:type/', function(req, res) {
-	var type = req.params.type,
-			id = req.body.id,
-			user = req.body.user
+ 	var type = req.params.type,
+ 			id = req.body.id,
+ 			user = req.body.user;
 
-	db.requests.select(id).then(function(result) {
-		var yesvotes = result[0].yesvotes,
-				novotes = result[0].novotes
+ 	db.requests.select(id).then(function(result) {
+ 		var yesvotes = result[0].yesvotes,
+ 				novotes = result[0].novotes;
 
-		if (yesvotes == undefined) {
-			var yesvotes = []
-		}
-		if (novotes == undefined) {
-			var novotes = []
-		}
+ 		if (yesvotes == undefined) {
+			var yesvotes = [];
+ 		}
+ 		if (novotes == undefined) {
+ 			var novotes = [];
+ 		}
 
-		if (yesvotes.indexOf(user) > -1) {
-			yesvotes.splice(yesvotes.indexOf(user))
-		}
-		if (novotes.indexOf(user) > -1) {
-			novotes.splice(novotes.indexOf(user))
-		}
+ 		if (yesvotes.indexOf(user) > -1) {
+ 			yesvotes.splice(yesvotes.indexOf(user));
+ 		}
+ 		if (novotes.indexOf(user) > -1) {
+ 			novotes.splice(novotes.indexOf(user));
+ 		}
 
-		if (type == "approve") {
-			yesvotes.push(user)
-		}
-		else if (type == "reject") {
-			novotes.push(user)
-		}
+ 		if (type == "approve") {
+ 			yesvotes.push(user);
+ 		}
+ 		else if (type == "reject") {
+ 			novotes.push(user);
+ 		}
 
-		db.requests.vote(id, yesvotes, novotes)
-	})
-})
+ 		db.requests.vote(id, yesvotes, novotes);
+ 	})
+ })
 
 app.post('/admin/delete/', function(req, res) {
-	var id = req.body.id
+	var id = req.body.id;
 
-	db.requests.delete(id)
+	db.requests.delete(id);
 })
 
 // GET 404

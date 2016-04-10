@@ -20,7 +20,7 @@ schema.requests = {
   open: type.boolean(),
   approved: type.boolean(),
   requestdata: type.object(),
-  comments: type.array()
+  comments: type.object()
 };
 
-module.exports = schema
+module.exports = schema;

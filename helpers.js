@@ -1,8 +1,8 @@
-var config = require("./config")
+var config = require("./config");
 
 var isMod = function(username) {
   return config.app.mods.indexOf(username) > -1;
-}
+};
 
 var toDate = function(timestamp){
   var a = new Date(timestamp * 1000);
@@ -14,10 +14,10 @@ var toDate = function(timestamp){
   var min = a.getMinutes();
   var time = date + ' ' + month + ' ' + year;
   return time;
-}
+};
 
 
 module.exports = {
   isMod: isMod,
   toDate: toDate
-}
+};
