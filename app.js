@@ -169,10 +169,10 @@ app.post('/admin/vote/:type/', function(req, res) {
  		}
 
  		if (yesvotes.indexOf(user) > -1) {
- 			yesvotes.splice(yesvotes.indexOf(user));
+ 			yesvotes.splice(yesvotes.indexOf(user), 1);
  		}
  		if (novotes.indexOf(user) > -1) {
- 			novotes.splice(novotes.indexOf(user));
+ 			novotes.splice(novotes.indexOf(user), 1);
  		}
 
  		if (type == "approve") {
