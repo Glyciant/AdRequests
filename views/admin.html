@@ -126,8 +126,8 @@
                 </div>
               </div>
               <td>
-              <a class="btn green darken-4" href="javascript:;" id="vote-approve" data-id="{{request.id}}" data-user="{{request.redditname}}">{%if request.yesvotes.length%}{{request.yesvotes.length}}{%else%}0{%endif%}</a>
-              <a class="btn red darken-4" href="javascript:;" id="vote-reject" data-id="{{request.id}}" data-user="{{request.redditname}}">{%if request.novotes.length%}{{request.novotes.length}}{%else%}0{%endif%}</a>
+              <a class="btn green darken-4" href="javascript:;" id="vote-approve" data-id="{{request.id}}" data-user="{{loggedin}}">{%if request.yesvotes.length%}{{request.yesvotes.length}}{%else%}0{%endif%}</a>
+              <a class="btn red darken-4" href="javascript:;" id="vote-reject" data-id="{{request.id}}" data-user="{{loggedin}}">{%if request.novotes.length%}{{request.novotes.length}}{%else%}0{%endif%}</a>
               </td>
               <td>
                   <a class="modal-trigger btn black" href="#modal-confirm-delete-{{request.id}}"><i class="large material-icons">delete</i></a>
