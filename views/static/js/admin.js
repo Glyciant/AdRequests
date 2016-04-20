@@ -27,7 +27,7 @@ $(document).delegate("#vote-approve", "click", function() {
      id: id,
      user: user
    })
-   Materialize.toast("Your vote of approval for " + user + "\'s request was registered.", 4000)
+   Materialize.toast("Your vote has been registered.", 4000)
 });
 
 $(document).delegate("#vote-reject", "click", function() {
@@ -38,7 +38,7 @@ $(document).delegate("#vote-reject", "click", function() {
      id: id,
      user: user
    })
-   Materialize.toast("Your vote of rejection for " + user + "\'s request was registered.", 4000)
+   Materialize.toast("Your vote has been registered.", 4000)
 });
 
 $(document).delegate("#delete-request", "click", function() {

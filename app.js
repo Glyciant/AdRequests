@@ -75,7 +75,7 @@ app.get('/success/', function(req, res) {
 
 app.get('*', function(req, res, next) {
 	if (!app.locals.loggedin) {
-		res.render('error', {title: "Unauthorized", body: "You must login to access this page."});
+		res.redirect(app.locals.authurl)
 	}
 	else {
 		next();
