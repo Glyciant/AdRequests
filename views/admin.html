@@ -51,7 +51,7 @@
                     <br>
                     <p><strong>User Data Required:</strong> {{request.requestdata.data}}</p>
                     <br>
-                    <p><strong>Twitch API Intergration:</strong> {{request.requestdata.api}}</p>
+                    <p><strong>Twitch API Integration:</strong> {{request.requestdata.api}}</p>
                     {%if request.requestdata.api == "Yes"%}
                       <p><strong>API Data Required:</strong> {{request.requestdata.apidata}}</p>
                       <p><strong>Scopes Used:</strong> {{request.requestdata.scopes}}</p>
@@ -99,7 +99,7 @@
                     <p><strong>Desired Length (Days):</strong> {{request.requestdata.length}}</p>
                     <br>
                   {%elseif request.type == "other"%}
-                    <p><strong>Description:</strong> {{request.requestdata.description}}</p>
+                    <p><strong>Description:</strong> {{request.requestdata.description|nl2br}}</p>
                     <br>
                   {%endif%}
                 </div>
