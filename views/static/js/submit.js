@@ -279,6 +279,7 @@ $(document).ready(function() {
         scopes: scopes,
         scopesdescription: scopesdescription,
         toslink: toslink,
+        code: code,
         codelink: codelink,
         betachanges: betachanges
       },

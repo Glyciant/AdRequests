@@ -50,3 +50,31 @@ $(document).delegate("#delete-request", "click", function() {
    })
    Materialize.toast("Request deleted.", 4000)
 });
+
+$(document).delegate("#request-status", "click", function() {
+   var id = $(this).data("id"),
+       status = $(this).data("status");
+
+   if (status == true) {
+     var approved = false;
+   }
+   else {
+     var approved = true;
+   }
+
+   $(this).data("status", approved);
+   $(this).toggleClass("red");
+   $(this).toggleClass("green");
+   $(this).find("i").toggleClass("fa-unlock");
+   $(this).find("i").toggleClass("fa-lock");
+
+   $.post("/admin/status/", {
+     id: id,
+     approved: approved
+   })
+   Materialize.toast("Request closed.", 4000)
+});
+
+$('#hide-closed').click(function() {
+  $(".request-closed").toggle(!(this.checked));
+});

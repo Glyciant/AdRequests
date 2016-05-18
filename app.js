@@ -12,7 +12,6 @@ var express = require('express'),
 	restler = require('restler');
 
 swigExtras.useTag(swig, 'markdown');
-swigExtras.useFilter(swig, 'nl2br');
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
@@ -76,7 +75,7 @@ app.get('/success/', function(req, res) {
 
 app.get('*', function(req, res, next) {
 	if (!app.locals.loggedin) {
-		res.redirect(app.locals.authurl);
+		res.redirect(app.locals.authurl)
 	}
 	else {
 		next();
@@ -160,13 +159,13 @@ app.post('/admin/vote/:type/', function(req, res) {
 
  	db.requests.select(id).then(function(result) {
  		var yesvotes = result[0].yesvotes,
-				novotes = result[0].novotes;
+ 				novotes = result[0].novotes;
 
- 		if (yesvotes === undefined) {
-			yesvotes = [];
+ 		if (yesvotes == undefined) {
+			var yesvotes = [];
  		}
- 		if (novotes === undefined) {
- 			novotes = [];
+ 		if (novotes == undefined) {
+ 			var novotes = [];
  		}
 
  		if (yesvotes.indexOf(user) > -1) {
@@ -184,14 +183,23 @@ app.post('/admin/vote/:type/', function(req, res) {
  		}
 
  		db.requests.vote(id, yesvotes, novotes);
- 	});
-});
+ 	})
+ })
 
 app.post('/admin/delete/', function(req, res) {
 	var id = req.body.id;
 
 	db.requests.delete(id);
-});
+})
+
+app.post('/admin/status/', function(req, res) {
+	var id = req.body.id,
+			approved = req.body.approved;
+
+	approved = (req.body.approved == "true");
+
+	db.requests.changeStatus(id, approved);
+})
 
 // GET 404
 app.get('*', function(req, res, next) {

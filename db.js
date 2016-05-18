@@ -55,8 +55,15 @@ var requests = {
          resolve(db)
        })
      })
+   },
+   changeStatus: (id, approved) => {
+     return new Promise((resolve, reject) => {
+       RequestModel.filter({id: id}).update({approved: approved}).run().then((db) => {
+         resolve(db)
+       })
+     })
    }
-};
+ };
 
 module.exports = {
   requests: requests

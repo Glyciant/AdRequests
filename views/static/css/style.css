@@ -19,3 +19,11 @@ input[type=text]:focus:not([readonly]), input[type=number]:focus:not([readonly])
 #ama-streamer-twitch-partner-time, #ama-streamer-twitch-partner-time-input, #ama-business-product-tos, #ama-business-product-tos-input, #web_tool-service-tos, #web_tool-service-tos-input, #web_tool-open-code, #web_tool-open-code-input, #web_tool-beta-change, #web_tool-beta-change-input, #desktop_tool-service-tos, #desktop_tool-service-tos-input, #desktop_tool-open-code, #desktop_tool-open-code-input, #desktop_tool-beta-change, #desktop_tool-beta-change-input {
 	display: none;
 }
+
+.switch label input[type=checkbox]:checked+.lever {
+	background-color: #9a7fcc;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+	background-color: #6441A5;
+}
