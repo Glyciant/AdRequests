@@ -51,30 +51,100 @@ $(document).delegate("#delete-request", "click", function() {
    Materialize.toast("Request deleted.", 4000)
 });
 
-$(document).delegate("#request-status", "click", function() {
+$(document).delegate("#change-approved", "click", function() {
    var id = $(this).data("id"),
        status = $(this).data("status");
 
-   if (status == true) {
-     var approved = false;
+   if (status == "Pending") {
+     var approved = "Approved";
+   }
+   else if (status == "Approved") {
+     var approved = "Rejected";
    }
    else {
-     var approved = true;
+     var approved = "Pending";
    }
 
    $(this).data("status", approved);
-   $(this).toggleClass("red");
-   $(this).toggleClass("green");
-   $(this).find("i").toggleClass("fa-unlock");
-   $(this).find("i").toggleClass("fa-lock");
+   $("#approved-" + id).html(approved)
 
-   $.post("/admin/status/", {
+   $.post("/admin/approved/", {
      id: id,
      approved: approved
    })
-   Materialize.toast("Request closed.", 4000)
+});
+
+$(document).delegate("#change-status", "click", function() {
+   var id = $(this).data("id"),
+       status = $(this).data("status");
+
+   if (status === true) {
+     var open = false;
+     $(this).data("status", open);
+     $("#status-" + id).html("Closed")
+   }
+   else {
+     var open = true;
+     $(this).data("status", open);
+     $("#status-" + id).html("Open")
+   }
+
+   $.post("/admin/status/", {
+     id: id,
+     status: open
+   })
 });
 
 $('#hide-closed').click(function() {
   $(".request-closed").toggle(!(this.checked));
 });
+
+$(document).delegate("#search-reddit", "change", function() {
+  var query = $(this).val().toLowerCase()
+  if (query !== "") {
+    $("#request-wrapper div:not([data-redditname*='"+ query +"'])[id*='request']").hide()
+  }
+})
+
+$(document).delegate("#search-twitch", "change", function() {
+  var query = $(this).val().toLowerCase()
+  if (query !== "") {
+    $("#request-wrapper div:not([data-twitchname*='"+ query +"'])[id*='request']").hide()
+  }
+})
+
+$(document).delegate("#search-approved", "change", function() {
+  var query = $(this).val().toLowerCase()
+  if (query !== "") {
+    $("#request-wrapper div:not([data-approved*='"+ query +"'])[id*='request']").hide()
+  }
+})
+
+$(document).delegate("#search-status", "change", function() {
+  var query = $(this).val().toLowerCase()
+  if (query == "open") {
+    var query2 = true;
+  }
+  else if (query == "closed") {
+    var query2 = false;
+  }
+  if (query !== "") {
+    $("#request-wrapper div:not([data-status*='"+ query2 +"'])[id*='request']").hide()
+  }
+})
+
+$(document).delegate("#search-type", "change", function() {
+  var query = $(this).val().toLowerCase().replace(" ", "_").replace("(", "").replace(")", "")
+  if (query !== "") {
+    $("#request-wrapper div:not([data-type*='"+ query +"'])[id*='request']").hide()
+  }
+})
+
+$(document).delegate("#search-all", "click", function() {
+  $("#request-wrapper div[id*='request']").show()
+  $("#search-reddit").val("");
+  $("#search-twitch").val("");
+  $("#search-approved").val("Search Approval");
+  $("#search-status").val("Search Status");
+  $("#search-type").val("Search Type");
+})

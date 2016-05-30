@@ -56,9 +56,23 @@ var requests = {
        })
      })
    },
-   changeStatus: (id, approved) => {
+   changeApproved: (id, approved) => {
      return new Promise((resolve, reject) => {
        RequestModel.filter({id: id}).update({approved: approved}).run().then((db) => {
+         resolve(db)
+       })
+     })
+   },
+   changeStatus: (id, status) => {
+     return new Promise((resolve, reject) => {
+       RequestModel.filter({id: id}).update({open: status}).run().then((db) => {
+         resolve(db)
+       })
+     })
+   },
+   getByUser: (user) => {
+     return new Promise((resolve, reject) => {
+       RequestModel.filter({redditname: user}).run().then((db) => {
          resolve(db)
        })
      })

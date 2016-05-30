@@ -111,6 +111,12 @@ app.get('/submit/other/', function(req, res) {
 	res.render('submit_other');
 });
 
+app.get('/requests/', function(req, res) {
+	db.requests.getByUser(req.session.name).then(function(result) {
+		res.render('requests', { data: result })
+	})
+})
+
 app.get('*', function(req, res, next) {
 	if (helpers.isMod(app.locals.loggedin) === true) {
 		next();
@@ -127,10 +133,16 @@ app.get('/admin/', function(req, res) {
 	});
 });
 
+app.get('/request/:id/', function(req, res) {
+	db.requests.select(req.params.id).then(function(request) {
+		var username = req.session.name.toLowerCase();
+		res.render('request', {request: request[0], username: username});
+	})
+})
+
 // Posts
 
 app.post('/submit_request/', function(req, res) {
-	req.body.approved = (req.body.approved == "true");
 	req.body.open = (req.body.open == "true");
 	db.requests.create(req.body);
 });
@@ -193,13 +205,18 @@ app.post('/admin/delete/', function(req, res) {
 	db.requests.delete(id);
 });
 
-app.post('/admin/status/', function(req, res) {
+app.post('/admin/approved/', function(req, res) {
 	var id = req.body.id,
 			approved = req.body.approved;
 
-	approved = (req.body.approved == "true");
+	db.requests.changeApproved(id, approved);
+})
 
-	db.requests.changeStatus(id, approved);
+app.post('/admin/status/', function(req, res) {
+	var id = req.body.id,
+			status = (req.body.status === "true");
+
+	db.requests.changeStatus(id, status);
 })
 
 // GET 404

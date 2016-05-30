@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/6.0.0/markdown-it.js"></script>
   </head>
-  <body class="grey darken-3">
+  <body class="grey darken-3 white-text">
     <div class="nav">
       {%if loggedin%}
       <ul id="dropdown-logout" class="dropdown-content grey">
@@ -23,6 +23,7 @@
             <li><a href="/">Home</a></li>
             {%if loggedin%}
               <li><a href="/submit/">Submit Request</a></li>
+              <li><a href="/requests/">My Requests</a></li>
               {%if ismod%}
                 <li><a href="/admin/">Admin Panel</a></li>
               {%endif%}

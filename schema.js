@@ -18,7 +18,7 @@ schema.requests = {
   yesvotes: type.array(),
   novotes: type.array(),
   open: type.boolean(),
-  approved: type.boolean(),
+  approved: type.string(),
   requestdata: type.object(),
   comments: type.object()
 };

@@ -174,13 +174,15 @@ $(document).ready(function() {
         owner: owner,
         description: description
       },
-          id = Math.floor(Math.random() * 99999) + 10000,
+          id = Math.floor(Math.random() * 9999999999) + 1000000000,
           redditname = $(this).data("username"),
           type = "video",
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false;
+          approved = "Pending",
+          date = new Date();
+
 
       $.post("/submit_request/", {
         id: id,
@@ -192,7 +194,8 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata,
-        comments: commentsTemplate
+        comments: commentsTemplate,
+        date: date
       });
       window.location.href = '/success/';
     }
@@ -283,13 +286,14 @@ $(document).ready(function() {
         codelink: codelink,
         betachanges: betachanges
       },
-          id = Math.floor(Math.random() * 99999) + 10000,
+          id = Math.floor(Math.random() * 9999999999) + 1000000000,
           redditname = $(this).data("username"),
           type = "web_tool",
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false;
+          approved = "Pending",
+          date = new Date();
 
       $.post("/submit_request/", {
         id: id,
@@ -301,7 +305,8 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata,
-        comments: commentsTemplate
+        comments: commentsTemplate,
+        date: date
       });
       window.location.href = '/success/';
     }
@@ -387,13 +392,14 @@ $(document).ready(function() {
         codelink: codelink,
         betachanges: betachanges
       },
-          id = Math.floor(Math.random() * 99999) + 10000,
+          id = Math.floor(Math.random() * 9999999999) + 1000000000,
           redditname = $(this).data("username"),
           type = "desktop_tool",
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false;
+          approved = "Pending",
+          date = new Date();
 
       $.post("/submit_request/", {
         id: id,
@@ -405,7 +411,8 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata,
-        comments: commentsTemplate
+        comments: commentsTemplate,
+        date: date
       });
       window.location.href = '/success/';
     }
@@ -418,6 +425,10 @@ $(document).ready(function() {
     var twitchname = getUrlParameter("twitchname"),
         viewers = $("#ama-streamer-viewers").val(),
         start = $("#ama-streamer-start").val(),
+        good_host = $("#ama-streamer-good-host").val(),
+        why = $("#ama-streamer-why").val(),
+        focus = $("#ama-streamer-focus").val(),
+        background = $("#ama-streamer-background").val(),
         length = $("#ama-streamer-length").val();
 
     var partner;
@@ -433,21 +444,26 @@ $(document).ready(function() {
       }
     }
 
-    if (viewers !== "" && start !== "" && length !== "" && partner !== undefined) {
+    if (viewers !== "" && start !== "" && length !== "" && partner !== undefined && good_host !== "" && why !== "" && focus !== "" && background !== "") {
       var requestdata = {
         viewers: viewers,
         start: start,
         length: length,
+        good_host: good_host,
+        why: why,
+        focus: focus,
+        background: background,
         partner: partner,
         partnertime: partnertime
       },
-          id = Math.floor(Math.random() * 99999) + 10000,
+          id = Math.floor(Math.random() * 9999999999) + 1000000000,
           redditname = $(this).data("username"),
           type = "ama_streamer",
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false;
+          approved = "Pending",
+          date = new Date();
 
       $.post("/submit_request/", {
         id: id,
@@ -459,7 +475,8 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata,
-        comments: commentsTemplate
+        comments: commentsTemplate,
+        date: date
       });
       window.location.href = '/success/';
     }
@@ -504,13 +521,14 @@ $(document).ready(function() {
         tos: tos,
         toslink: toslink,
       },
-          id = Math.floor(Math.random() * 99999) + 10000,
+          id = Math.floor(Math.random() * 9999999999) + 1000000000,
           redditname = $(this).data("username"),
           type = "ama_business",
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false;
+          approved = "Pending",
+          date = new Date();
 
       $.post("/submit_request/", {
         id: id,
@@ -522,7 +540,8 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata,
-        comments: commentsTemplate
+        comments: commentsTemplate,
+        date: date
       });
       window.location.href = '/success/';
     }
@@ -539,13 +558,14 @@ $(document).ready(function() {
       var requestdata = {
         description: description
       },
-          id = Math.floor(Math.random() * 99999) + 10000,
+          id = Math.floor(Math.random() * 9999999999) + 1000000000,
           redditname = $(this).data("username"),
           type = "other",
           yesvotes = [],
           novotes = [],
           open = true,
-          approved = false;
+          approved = "Pending",
+          date = new Date();
 
       $.post("/submit_request/", {
         id: id,
@@ -557,7 +577,8 @@ $(document).ready(function() {
         open: open,
         approved: approved,
         requestdata: requestdata,
-        comments: commentsTemplate
+        comments: commentsTemplate,
+        date: date
       });
       window.location.href = '/success/';
     }

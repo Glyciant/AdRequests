@@ -1,0 +1,148 @@
+{% include "./header.html"%}
+<style> a { color: #bdbdbd; } </style>
+<div class="row">
+  {% for request in data %}
+    <div class="col s10 offset-s1 grey darken-2" style="padding: 5px; border-radius: 10px; margin-top: 15px;">
+      <div class="col s12">
+        {%if request.type == "video"%}
+          <p><strong>What is the video's URL?</strong> <a href="{{request.requestdata.url}}">{{request.requestdata.url}}</a></p>
+          <br>
+          <p><strong>Is the video made by you?</strong> {{request.requestdata.owner}}</p>
+          <br>
+          <p><strong>Please give us a small description about this video, including why you want to post it on /r/Twitch.</strong> {{request.requestdata.description}}</p>
+          <br>
+        {%elseif request.type == "web_tool" || request.type == "desktop_tool"%}
+          <p><strong>What is the tool's name?</strong> {{request.requestdata.name}}</p>
+          <br>
+          <p><strong>What is the tool's URL?</strong> <a href="{{request.requestdata.url}}">{{request.requestdata.url}}</a></p>
+          <br>
+          <p><strong>Please give us a small description of your service.</strong> {{request.requestdata.description}}</p>
+          <br>
+          <p><strong>What user data will you require? Examples: email addresses, cookies, login data, API data, etc.</strong> {{request.requestdata.data}}</p>
+          <br>
+          <p><strong>Do you require data from the Twitch API?:</strong> {{request.requestdata.api}}</p>
+          {%if request.requestdata.api == "Yes"%}
+            <p><strong>What user data will you store from the Twitch API?</strong> {{request.requestdata.apidata}}</p>
+            <p><strong>What scopes will you use from the Twitch API?</strong> {{request.requestdata.scopes}}</p>
+            <p><strong>Please describe why you need each of the above scopes.</strong> {{request.requestdata.scopesdescription}}</p>
+          {%endif%}
+          <br>
+          <p><strong>Is your code open source, or avaliable upon request?</strong> {{request.requestdata.code}}</p>
+          {%if request.requestdata.code == "Yes"%}
+            <p><strong>Please provide a link to where we can find the code.</strong> <a href="{{request.requestdata.codelink}}">{{request.requestdata.codelink}}</a></p><br>
+          {%endif%}
+          <br>
+          <p><strong>Do you have a Terms of Service?</strong> {{request.requestdata.tos}}</p>
+          {%if request.requestdata.tos == "Yes"%}
+            <p><strong>Please provide a link to your Terms of Service.</strong> <a href="{{request.requestdata.toslink}}">{{request.requestdata.toslink}}</a></p><br>
+          {%endif%}
+          <br>
+          <p><strong>If you are in beta, do you expect any updates to change the above answers?</strong> {{request.requestdata.beta}}</p>
+          {%if request.requestdata.beta == "Yes"%}
+            <p><strong> What do you expect to change when you leave beta?</strong> {{request.requestdata.betachanges}}</p>
+          {%endif%}
+          <br>
+        {%elseif request.type == "ama_streamer"%}
+          <p><strong>Are you partnered with Twitch?</strong> {{request.requestdata.partner}}</p>
+          {%if request.requestdata.partnertime == "Yes"%}
+            <p><strong>For how long have you been a Twitch partner?</strong> {{request.requestdata.partnertime}}</p>
+          {%endif%}
+          <br>
+          <p><strong>Roughly how many viewers do you get per stream?</strong> {{request.requestdata.viewers}}</p>
+          <br>
+          <p><strong>What makes you think you would make a good AMA host?</strong> {{request.requestdata.good_host}}</p>
+          <br>
+          <p><strong>Why do you want to an AMA?</strong> {{request.requestdata.why}}</p>
+          <br>
+          <p><strong>What do you want to be the focus of your AMA (if anything)?</strong> {{request.requestdata.focus}}</p>
+          <br>
+          <p><strong>Can you give us a background on yourself and your stream?</strong> {{request.requestdata.background}}</p>
+          <br>
+          <p><strong>What date would you like your AMA to start on?</strong> {{request.requestdata.start}}</p>
+          <br>
+          <p><strong>How many days would you like your AMA to run for?</strong> {{request.requestdata.length}}</p>
+          <br>
+        {%elseif request.type == "ama_business"%}
+          <p><strong>What is your business' name?</strong> {{request.requestdata.name}}</p>
+          <br>
+          <p><strong>What is your product's name?</strong> {{request.requestdata.productname}}</p>
+          <br>
+          <p><strong>Do you have the necessary permissions from the company to talk about the product on /r/Twitch?</strong> {{request.requestdata.permission}}</p>
+          <br>
+          <p><strong>Do you have a Terms of Service?</strong> {{request.requestdata.tos}}</p>
+          {%if request.requestdata.tos == "Yes"%}
+            <p><strong>Please provide a link to your Terms of Service.</strong> <a href="{{request.requestdata.toslink}}">{{request.requestdata.toslink}}</a></p><br>
+          {%endif%}
+          <br>
+          <p><strong>What user data do you require on your product? Examples: email addresses, cookies, login data, API data, etc.</strong> {{request.requestdata.userdata}}</p>
+          <br>
+          <p><strong>What date would you like your AMA to start on?</strong> {{request.requestdata.start}}</p>
+          <br>
+          <p><strong>How many days would you like your AMA to run for?</strong> {{request.requestdata.length}}</p>
+          <br>
+        {%elseif request.type == "other"%}
+          <p><strong>Please provide as much detail about your request as possible.</strong> {{request.requestdata.description}}</p>
+          <br>
+        {%endif%}
+        <hr />
+      </div>
+      <div class="col s2 center" style="border-right: dotted 1px white;">
+        <strong>Reddit Username</strong>
+        <br />
+        <span>{{request.redditname}}</span>
+      </div>
+      <div class="col s2 center" style="border-right: dotted 1px white;">
+        <strong>Twitch Username</strong>
+        <br />
+        <span>{{request.twitchname}}</span>
+      </div>
+      <div class="col s2 center">
+        <strong>Type</strong>
+        <br />
+        <span>
+          {%if request.type == "video"%}
+          Video
+          {%elseif request.type == "web_tool"%}
+          Web Tool
+          {%elseif request.type == "desktop_tool"%}
+          Desktop Tool
+          {%elseif request.type == "ama_streamer"%}
+          Streamer AMA
+          {%elseif request.type == "ama_business"%}
+          Business AMA
+          {%elseif request.type == "other"%}
+          Other
+          {%endif%}
+        </span>
+        <br />
+      </div>
+      <div class="col s2 center" style="border-right: dotted 1px white; border-left: dotted 1px white;">
+        <strong>Request ID</strong>
+        <br />
+        <span>{{request.id}}</span>
+      </div>
+      <div class="col s2 center" style="border-right: dotted 1px white;">
+        <strong>Status</strong>
+        <br />
+        <span>
+          {% if request.open %}
+            Open
+          {% else %}
+            Closed
+          {% endif %}
+        </span>
+      </div>
+      <div class="col s2 center">
+        <strong>Approval Status</strong>
+        <br />
+        <span>{{request.approved}}</span>
+      </div>
+    </div>
+  {% endfor %}
+  {% if !data[0] %}
+    <div class="col s10 offset-s1 grey darken-2" style="padding: 5px; border-radius: 10px; margin-top: 15px;">
+      <p class="center">None Found</p>
+    </div>
+  {% endif %}
+</div>
+{% include "./footer.html"%}
