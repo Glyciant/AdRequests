@@ -158,7 +158,7 @@ $(document).ready(function() {
     $("#desktop_tool-beta-change-input").slideUp();
   });
 
-  var commentsTemplate = { distortednet: "", mellownebula: "", boomliam: "", conceptional: "", laagone: "", heep123: "", decicus: "", sargasm_gaming: "", zcotticus: "" }
+  var commentsTemplate = { heep123: "", boomliam: "", mellownebula: "", conceptional: "", laagone: "", zcotticus: "", decicus: "", sargasm_gaming: "", saaitv: "" }
 
   $("#video-submit").click(function() {
     var twitchname = getUrlParameter("twitchname"),
